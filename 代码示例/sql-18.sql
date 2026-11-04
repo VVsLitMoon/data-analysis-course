@@ -1,0 +1,6 @@
+SELECT DATE('2026-01-31 13:20:00') AS dt,
+  DATE_ADD('2026-01-31',INTERVAL 1 DAY) AS next_day,
+  DATEDIFF('2026-02-02','2026-01-31') AS day_gap,
+  DATE_FORMAT('2026-01-31','%Y-%m') AS month;
+SELECT CONCAT('user-',CAST(7 AS CHAR)) AS label,
+  ROUND(100.0/3,2) AS amount;

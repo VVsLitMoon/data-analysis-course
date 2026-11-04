@@ -1,0 +1,10 @@
+SELECT *
+FROM scratch;
+START TRANSACTION;
+UPDATE scratch SET amount=99
+WHERE id=1;
+SELECT *
+FROM scratch;
+ROLLBACK;
+SELECT *
+FROM scratch;

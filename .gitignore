@@ -1,0 +1,15 @@
+# 运行时数据：独立的 MySQL 数据目录与日志
+runtime/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Notebook
+.ipynb_checkpoints/
+
+# 系统
+.DS_Store
+Thumbs.db

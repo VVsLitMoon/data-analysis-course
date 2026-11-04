@@ -1,0 +1,8 @@
+EXPLAIN
+SELECT *
+FROM orders
+WHERE order_id=101;
+EXPLAIN
+SELECT *
+FROM orders
+WHERE amount>100;
