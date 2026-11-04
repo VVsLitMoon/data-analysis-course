@@ -1,0 +1,16 @@
+# 默认按文本处理，但两个启动脚本的行尾必须固定：
+# Windows 批处理遇到 LF 换行时，括号代码块可能解析失败；
+# shell 脚本遇到 CRLF 会出现 bad interpreter。
+*.sh  text eol=lf
+*.cmd -text
+*.bat -text
+
+# 其余文本统一为 LF
+*.py   text eol=lf
+*.js   text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.sql  text eol=lf
+*.ipynb text eol=lf
