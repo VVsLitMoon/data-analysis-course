@@ -13,3 +13,6 @@ venv/
 # 系统
 .DS_Store
 Thumbs.db
+
+# 内部接管说明：只在本地保留，不对外公开
+HANDOFF.md
