@@ -57,7 +57,23 @@
 
 ## 快速开始
 
-前置：Python 3.10+；MySQL 8.0（只影响 SQL 课的「运行」按钮）。
+### 路径 A · 零安装，先看界面
+
+`Code` → `Download ZIP` 解压，双击 `docs/index.html`。**不用装 Python，不用装 MySQL。**
+
+这是静态演示页：界面、86 节课、自测、参数实验全是真的，点「运行」显示的是**预先在本机验证过的预期输出**，不会真的执行你改的代码。零成本看到 90% 的东西，这一步就是为了它做的。
+
+### 路径 B · 本地完整版，真的执行代码
+
+| 依赖 | 是否必须 | 说明 |
+|---|---|---|
+| Python 3.10+ | 必须 | — |
+| pandas / numpy / scipy / scikit-learn | 必须 | `pip install -r requirements.txt` |
+| MySQL 8.0 | **只有 SQL 课需要** | 需**本机安装**，仓库不自带；默认找 `C:\Program Files\MySQL\MySQL Server 8.0\bin` |
+| 磁盘 | 首次运行 | `runtime/` 约 180 MB |
+| 首次启动 | 一次性 | 约 10 秒，用于初始化独立 MySQL 实例 |
+
+没装 MySQL 也能读完全部课程、跑全部 Python 课，只有 SQL 的运行按钮会提示环境缺失。
 
 ```bash
 pip install -r requirements.txt
@@ -111,7 +127,7 @@ data-analysis-course/
 │   └── validate_book.py  自检：静态白名单、示例可运行性
 ├── 讲义Markdown/         86 节 Markdown 版（可直接用编辑器读）
 ├── 代码示例/             .sql / .py / .ipynb，可离线单独运行
-├── docs/                 静态演示页 + README 用的截图（GitHub Pages 用）
+├── docs/                 零安装静态演示页（双击 index.html）+ README 截图
 ├── data/fixtures.json    6 张教学表的数据
 ├── 知识点覆盖矩阵.md
 └── 官方参考与适用范围.md
