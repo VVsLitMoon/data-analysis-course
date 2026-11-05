@@ -761,7 +761,7 @@ add('path','知识边界、来源与下一阶段','''
 讲解和练习为本次原创教学内容，技术口径参考官方文档；面试题只用来安排学习优先级，不当作必考承诺。公式注明近似假设，默认代码会保存本机执行验证记录。预期输出与实时结果分别显示。
 ## 下一步
 从第一课点运行即可。遇到错误保留代码、错误文字和你期待的结果，发给我时标明课号。以后我们依据你真实答题表现更新学习记录，不能仅因资料已经齐备就把进度标成完成。
-''',q='这份讲义的“覆盖”意味着？',options=['覆盖约定备考范围，仍需练习与按反馈深化','保证所有题都会考到','读完无需练习'],explain='完整路线与真正掌握是不同的事。')
+''',q='这份讲义的“覆盖”意味着？',options=['覆盖约定的学习范围，仍需练习与按反馈深化','保证所有题都会考到','读完无需练习'],explain='完整路线与真正掌握是不同的事。')
 
 def pretty_sql(code):
  # Insert only whitespace outside quoted strings; SQL meaning is unchanged.
@@ -795,6 +795,8 @@ def build():
  (ROOT/'代码示例/_lecture_data.py').write_text(prelude,encoding='utf-8')
  init=(ROOT/'代码示例/00_初始化_MySQL8.sql').read_text(encoding='utf-8')
  init=re.sub(r'^--[^\n]*','-- 本讲义专用模拟数据；会重建 da_beginner_lab 中的六张教学表。',init,count=1)
+ # The scratch table is appended below; drop any earlier copy so repeated builds stay identical.
+ init=re.sub(r'(?:\s*DROP TABLE IF EXISTS scratch;.*)\Z','',init,flags=re.S)
  # Standalone SQL data: replace only explicit table identifiers, preserve user data.
  for name in fixtures:init=re.sub(r'\b'+name+r'\b',name.removeprefix('da_'),init)
  init=re.sub(r'CREATE DATABASE[^;]*;','CREATE DATABASE IF NOT EXISTS da_beginner_lab CHARACTER SET utf8mb4;',init,flags=re.I)
