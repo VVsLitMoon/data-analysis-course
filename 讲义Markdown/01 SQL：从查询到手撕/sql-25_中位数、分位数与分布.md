@@ -35,3 +35,25 @@ WHERE rn IN (FLOOR((n+1)/2),FLOOR((n+2)/2));
 答案：3。先排序，再取中间两个。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "sql",
+  "results": [
+    {
+      "columns": [
+        "median_amount"
+      ],
+      "rows": [
+        [
+          "100.000000"
+        ]
+      ],
+      "total": 1
+    }
+  ],
+  "text": "执行成功。每次运行均使用一份新数据；本轮多条语句可连续操作。"
+}
+```

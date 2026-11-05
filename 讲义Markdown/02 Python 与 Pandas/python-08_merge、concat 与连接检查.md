@@ -39,3 +39,12 @@ validate 参数为什么有用？
 答案：2。它能防止本应一对多的连接悄悄变成多对多。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "    user_id  order_id     _merge\n0         1     101.0       both\n1         1     102.0       both\n2         1     103.0       both\n3         1     104.0       both\n4         1     105.0       both\n5         2     106.0       both\n6         2     107.0       both\n7         2     114.0       both\n8         3     108.0       both\n9         3     109.0       both\n10        4     110.0       both\n11        4     111.0       both\n12        5       NaN  left_only\n13        6       NaN  left_only\n14        7     112.0       both\n15        7     113.0       both\n合并后金额： 1450.0\ncategory    A    B    C\nuser_id                \n1         150   50  200\n2         180   20    0\n3         100  100    0\n4           0  200   50\n7           0    0  400\n     users  conversion  gmv_per_user\narm                                 \nA        3    0.666667         200.0\nB        3    0.666667         150.0\n"
+}
+```

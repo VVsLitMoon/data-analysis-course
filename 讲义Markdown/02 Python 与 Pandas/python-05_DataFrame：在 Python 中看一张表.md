@@ -31,3 +31,12 @@ orders[['order_id','amount']] 返回？
 答案：2。双层括号的内层是列名列表。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "   order_id  user_id             order_at  amount status category\n0       101        1  2026-01-01 10:00:00     100   paid        A\n1       102        1  2026-01-02 10:00:00      50   paid        B\n2       103        1  2026-01-05 10:00:00      50   paid        A\n行列数： (16, 6)\norder_id     int64\nuser_id      int64\norder_at    object\namount       int64\nstatus      object\ncategory    object\ndtype: object\n   order_id  amount\n0       101     100\n1       102      50\n2       103      50\n3       104     200\n4       105       0\n"
+}
+```

@@ -36,3 +36,12 @@ Pandas 两个整列条件通常用？
 答案：1。整列逐元素逻辑与使用 &。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "    order_id  user_id  ... category  amount_after_10pct_discount\n11       112        7  ...        C                        270.0\n3        104        1  ...        C                        180.0\n9        110        4  ...        B                        180.0\n0        101        1  ...        A                         90.0\n7        108        3  ...        B                         90.0\n8        109        3  ...        A                         90.0\n12       113        7  ...        C                         90.0\n13       114        2  ...        A                         90.0\n\n[8 rows x 7 columns]\n"
+}
+```

@@ -39,3 +39,12 @@ print("安全比率：", numerator.div(denominator.where(denominator.ne(0))))
 答案：3。可复现和无偏、显著是不同概念。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "数组乘法： [2 4 6]\n抽 5 个 0 到 9 的整数： [0 7 6 4 4]\n均值： 2.0\n分层： ['低' '高' '高']\n安全比率： 0    0.1\n1    NaN\ndtype: float64\n"
+}
+```

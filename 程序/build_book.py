@@ -779,7 +779,7 @@ def pretty_sql(code):
  return '\n'.join(x.rstrip() for x in result.splitlines() if x.strip()).strip()
 
 def build():
- expected_file=ROOT/'runtime/default_outputs.json'
+ expected_file=ROOT/'data/default_outputs.json'
  outputs=json.loads(expected_file.read_text(encoding='utf-8')) if expected_file.exists() else {}
  for item in lessons:
   if item['engine']=='sql' and item['code']:item['code']=pretty_sql(item['code'])

@@ -32,3 +32,12 @@ print("若确实是同一人前后配对：", ttest_rel(a, b))
 答案：1。Welch 不要求两组总体方差相同。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "独立样本 Welch： TtestResult(statistic=np.float64(-1.7751790062418158), pvalue=np.float64(0.11136649244823799), df=np.float64(8.550295857988166))\n若确实是同一人前后配对： TtestResult(statistic=np.float64(-5.838742081211423), pvalue=np.float64(0.002084792945485739), df=np.int64(5))\n"
+}
+```

@@ -38,3 +38,12 @@ print(channels.get("new_channel", 0))
 答案：2。Python 索引从 0 开始。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "100 80 [100, 50]\n230 3\n0\n"
+}
+```

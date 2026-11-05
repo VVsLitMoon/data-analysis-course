@@ -20,7 +20,7 @@ reuse=checks_only or sql_only or changed
 results=json.loads((ROOT/'runtime/自动验证报告.json').read_text(encoding='utf-8'))['examples'] if reuse else []
 if sql_only:results=[r for r in results if r['engine']!='sql']
 if changed:results=[r for r in results if r['engine']!='sql' and r['id'] not in changed_python]
-outputs=json.loads((ROOT/'runtime/default_outputs.json').read_text(encoding='utf-8')) if reuse else {}
+outputs=json.loads((ROOT/'data/default_outputs.json').read_text(encoding='utf-8')) if reuse else {}
 for item in ([] if checks_only else book['lessons']):
  if not item['code']:continue
  if sql_only and item['engine']!='sql':continue
@@ -95,7 +95,7 @@ def files_check():
  require(all(x['quiz']['options'] and 0<=x['quiz']['answer']<len(x['quiz']['options']) for x in book['lessons']))
 check('全部Python导出和Notebook语法、课号和题目配置完整',files_check)
 report={'date':datetime.datetime.now().isoformat(timespec='seconds'),'lessons':len(book['lessons']),'examples':results,'checks':checks,'note':'默认代码逐条通过真实HTTP运行；附加检查覆盖关键口径与恢复路径。执行成功不等于对任意用户改写代码提供判题。'}
-(ROOT/'runtime/default_outputs.json').write_text(json.dumps(outputs,ensure_ascii=False,indent=2),encoding='utf-8')
+(ROOT/'data/default_outputs.json').write_text(json.dumps(outputs,ensure_ascii=False,indent=2),encoding='utf-8')
 (ROOT/'runtime/自动验证报告.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 summary={'examples_passed':sum(x['ok'] for x in results),'examples_total':len(results),'checks_passed':sum(x['ok'] for x in checks),'checks_total':len(checks),'failed':[x for x in results+checks if not x['ok']]}
 print(json.dumps(summary,ensure_ascii=False,indent=2))

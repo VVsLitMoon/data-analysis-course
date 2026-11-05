@@ -36,3 +36,29 @@ SELECT 10.0/100 AS rate,
 答案：3。0.05 / 0.20 = 0.25。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "sql",
+  "results": [
+    {
+      "columns": [
+        "rate",
+        "percentage_points",
+        "relative_lift"
+      ],
+      "rows": [
+        [
+          "0.10000",
+          "2.00",
+          "0.200000"
+        ]
+      ],
+      "total": 1
+    }
+  ],
+  "text": "执行成功。每次运行均使用一份新数据；本轮多条语句可连续操作。"
+}
+```

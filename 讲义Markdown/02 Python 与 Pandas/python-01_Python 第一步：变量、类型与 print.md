@@ -38,3 +38,12 @@ Python 中 price = 20 表示？
 答案：3。判断相等写 price == 20。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "收入： 60\n变量类型： <class 'int'>\n"
+}
+```

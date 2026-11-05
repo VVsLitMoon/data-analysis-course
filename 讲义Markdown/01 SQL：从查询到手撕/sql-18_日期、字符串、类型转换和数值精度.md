@@ -33,3 +33,44 @@ DATEDIFF(后日期, 前日期) 的常见含义是？
 答案：1。需要秒级差值时用 TIMESTAMPDIFF。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "sql",
+  "results": [
+    {
+      "columns": [
+        "dt",
+        "next_day",
+        "day_gap",
+        "month"
+      ],
+      "rows": [
+        [
+          "2026-01-31",
+          "2026-02-01",
+          "2",
+          "2026-01"
+        ]
+      ],
+      "total": 1
+    },
+    {
+      "columns": [
+        "label",
+        "amount"
+      ],
+      "rows": [
+        [
+          "user-7",
+          "33.33"
+        ]
+      ],
+      "total": 1
+    }
+  ],
+  "text": "执行成功。每次运行均使用一份新数据；本轮多条语句可连续操作。"
+}
+```

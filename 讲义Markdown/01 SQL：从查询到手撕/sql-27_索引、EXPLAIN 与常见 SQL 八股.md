@@ -37,3 +37,80 @@ WHERE amount>100;
 答案：1。需要根据工作负载权衡。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "sql",
+  "results": [
+    {
+      "columns": [
+        "id",
+        "select_type",
+        "table",
+        "partitions",
+        "type",
+        "possible_keys",
+        "key",
+        "key_len",
+        "ref",
+        "rows",
+        "filtered",
+        "Extra"
+      ],
+      "rows": [
+        [
+          "1",
+          "SIMPLE",
+          "orders",
+          null,
+          "const",
+          "PRIMARY",
+          "PRIMARY",
+          "4",
+          "const",
+          "1",
+          "100.00",
+          null
+        ]
+      ],
+      "total": 1
+    },
+    {
+      "columns": [
+        "id",
+        "select_type",
+        "table",
+        "partitions",
+        "type",
+        "possible_keys",
+        "key",
+        "key_len",
+        "ref",
+        "rows",
+        "filtered",
+        "Extra"
+      ],
+      "rows": [
+        [
+          "1",
+          "SIMPLE",
+          "orders",
+          null,
+          "ALL",
+          null,
+          null,
+          null,
+          null,
+          "16",
+          "33.33",
+          "Using where"
+        ]
+      ],
+      "total": 1
+    }
+  ],
+  "text": "执行成功。每次运行均使用一份新数据；本轮多条语句可连续操作。"
+}
+```

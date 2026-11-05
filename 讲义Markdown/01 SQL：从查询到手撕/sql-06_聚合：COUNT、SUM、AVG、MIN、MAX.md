@@ -42,3 +42,44 @@ FROM users;
 答案：1。同一个买家可能有多笔订单。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "sql",
+  "results": [
+    {
+      "columns": [
+        "paid_orders",
+        "buyers",
+        "gmv",
+        "aov"
+      ],
+      "rows": [
+        [
+          "14",
+          "5",
+          "1450.00",
+          "103.571429"
+        ]
+      ],
+      "total": 1
+    },
+    {
+      "columns": [
+        "users",
+        "known_city_users"
+      ],
+      "rows": [
+        [
+          "7",
+          "6"
+        ]
+      ],
+      "total": 1
+    }
+  ],
+  "text": "执行成功。每次运行均使用一份新数据；本轮多条语句可连续操作。"
+}
+```

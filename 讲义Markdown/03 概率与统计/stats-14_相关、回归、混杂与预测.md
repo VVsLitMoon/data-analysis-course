@@ -35,3 +35,12 @@ print("Spearman：", spearmanr(x,y).statistic)
 答案：2。遗漏混杂或反向因果仍可能存在。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "斜率/截距： 2.0 0.7999999999999998\nR²： 0.9803921568627451\nSpearman： 0.9999999999999999\n"
+}
+```

@@ -42,3 +42,12 @@ return 与 print 的区别是？
 答案：3。函数返回值可继续参与计算。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "0.12\nNone\n4.0\n"
+}
+```

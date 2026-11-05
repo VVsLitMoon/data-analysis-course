@@ -36,3 +36,29 @@ FROM buyer;
 答案：1。先约定按订单数还是不同购买日。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "sql",
+  "results": [
+    {
+      "columns": [
+        "buyers",
+        "repeat_by_orders",
+        "repeat_by_days"
+      ],
+      "rows": [
+        [
+          "5",
+          "5",
+          "4"
+        ]
+      ],
+      "total": 1
+    }
+  ],
+  "text": "执行成功。每次运行均使用一份新数据；本轮多条语句可连续操作。"
+}
+```

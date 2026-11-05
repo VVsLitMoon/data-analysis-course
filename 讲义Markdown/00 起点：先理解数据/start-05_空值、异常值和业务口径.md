@@ -35,3 +35,56 @@ WHERE city IS NULL;
 答案：2。缺失原因和分析目标决定处理方式。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "sql",
+  "results": [
+    {
+      "columns": [
+        "status",
+        "n",
+        "amount_sum"
+      ],
+      "rows": [
+        [
+          "paid",
+          "14",
+          "1450.00"
+        ],
+        [
+          "cancelled",
+          "1",
+          "999.00"
+        ],
+        [
+          "refunded",
+          "1",
+          "40.00"
+        ]
+      ],
+      "total": 3
+    },
+    {
+      "columns": [
+        "user_id",
+        "signup_date",
+        "channel",
+        "city"
+      ],
+      "rows": [
+        [
+          "5",
+          "2026-01-05",
+          "organic",
+          null
+        ]
+      ],
+      "total": 1
+    }
+  ],
+  "text": "执行成功。每次运行均使用一份新数据；本轮多条语句可连续操作。"
+}
+```

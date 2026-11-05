@@ -32,3 +32,12 @@ print("Bootstrap 均值区间：", np.quantile(boot,[0.025,0.975]))
 答案：1。保留随机化单位内部的相关结构。
 
 </details>
+
+## 本机验证时的预期输出
+
+```json
+{
+  "kind": "python",
+  "text": "Bootstrap 均值区间： [ 9.875 12.375]\n"
+}
+```
