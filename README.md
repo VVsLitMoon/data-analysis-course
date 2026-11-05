@@ -4,6 +4,8 @@
 
 不是视频，不是文档站，是一个**能执行的教程**。
 
+![主界面：左侧课程目录、中间正文、右侧可执行代码区](docs/images/overview.webp)
+
 ---
 
 ## 是什么
@@ -15,6 +17,20 @@
 | 教学数据 | 6 张模拟业务表（用户 / 订单 / 登录 / 事件 / 分组 / 日历），每次运行前重置 |
 | 参数实验 | 4 个交互控件：贝叶斯更新、样本量规划、效应量区间、GMV 拆解 |
 | 学习记录 | 笔记、自测作答、掌握自评存在浏览器本地，可导出导入 |
+
+## 真的能跑
+
+改一处、点运行，结果直接出现在代码区下方。下面这段 GIF 是真实录屏，没有剪辑成演示动画：
+
+![改代码 → 点运行 → 结果出现](docs/images/demo.gif)
+
+结果是本地 MySQL 8.0 实际执行出来的，不是预置答案：
+
+![SQL 窗口函数这一节，运行后在右侧看到 14 行结果](docs/images/run-sql.webp)
+
+四个参数实验（贝叶斯更新、样本量规划、效应量区间、GMV 拆解）可以直接拖滑块看结论怎么变：
+
+![贝叶斯参数实验：拖动基准率，看告警中真异常的比例如何变化](docs/images/param-lab.webp)
 
 ## 课程结构
 
@@ -90,14 +106,22 @@ data-analysis-course/
 │   ├── server.py         本地服务：静态白名单 + SQL/Python 执行接口
 │   ├── python_runner.py  子进程执行器（AST 白名单）
 │   ├── build_book.py     课程生成器：curriculum → 网页 / Markdown / 代码示例
+│   ├── build_demo.py     静态演示页生成器：输出到 docs/
 │   ├── curriculum.json   课程源数据（由生成器产出，也作为分发格式）
 │   └── validate_book.py  自检：静态白名单、示例可运行性
 ├── 讲义Markdown/         86 节 Markdown 版（可直接用编辑器读）
 ├── 代码示例/             .sql / .py / .ipynb，可离线单独运行
+├── docs/                 静态演示页 + README 用的截图（GitHub Pages 用）
 ├── data/fixtures.json    6 张教学表的数据
 ├── 知识点覆盖矩阵.md
 └── 官方参考与适用范围.md
 ```
+
+## 不启动服务也能读
+
+`讲义Markdown/` 是同一份 86 节内容的 Markdown 版，直接拖进 Typora、Obsidian 或 VS Code 就能读，含每节的可运行代码、动手任务和本机验证过的预期输出：
+
+![Markdown 版：一节内容的排版效果](docs/images/markdown-edition.webp)
 
 ## 复现与自检
 
@@ -106,9 +130,14 @@ data-analysis-course/
 ```bash
 python 程序/build_book.py      # 重新生成 lessons.js / curriculum.json / 讲义Markdown / 代码示例
 python 程序/validate_book.py   # 检查静态白名单与示例
+python 程序/build_demo.py      # 重新生成 docs/ 静态演示页（需先跑 build_book.py）
 ```
 
 运行时会生成 `runtime/`（数据库文件与日志），已在 `.gitignore` 里排除。
+
+## 许可
+
+[MIT](LICENSE)。课程内容与代码都可自由使用、修改、分发。
 
 ## 已知限制
 
